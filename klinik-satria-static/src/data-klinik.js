@@ -1,49 +1,51 @@
 export const klinikData = {
   nama: "Klinik Satria Gadingan",
-  slogan: "Melayani Pasien Umum & BPJS Kesehatan dengan Sepenuh Hati",
-  tagline: "Klinik Satria Gadingan hadir memberikan pelayanan kesehatan paripurna untuk Anda dan keluarga. Kami berkomitmen untuk selalu memberikan pelayanan yang cepat, tepat, dan ramah.",
-  deskripsi: "Klinik Pratama Satria Gadingan hadir memberikan pelayanan kesehatan terpadu, profesional, dan terjangkau bagi masyarakat sekitar. Kami berkomitmen untuk menjadi mitra kesehatan terbaik keluarga Anda.",
+  buka: "Buka 24 Jam",
+  tagline: "Melayani Pasien Umum & BPJS Kesehatan",
+  alamat: "Jl. Kaliurang KM 11, Gadingan, Sinduharjo, Kec. Ngaglik, Kabupaten Sleman, Daerah Istimewa Yogyakarta",
   kontak: {
-    telepon: "(0274) 123456",
+    telepon: "0274-123456",
     email: "info@klinik-satria.com",
-    alamat: "Jl. Gadingan Raya No. 12, Gadingan, Kec. Tempel, Sleman, Yogyakarta",
     socialMedia: {
       instagram: "https://instagram.com/kliniksatriagadingan",
       facebook: "https://facebook.com/kliniksatriagadingan"
     }
   },
-  buka: "08.00 - 20.00 WIB (Senin - Sabtu)",
-  jamOperasional: {
-    seninJumat: "08.00 - 20.00 WIB",
-    sabtu: "08.00 - 15.00 WIB",
-    minggu: "Tutup (Kecuali UGD 24 Jam)"
+  visimisi: {
+    visi: "Menjadi klinik kesehatan rujukan utama yang memberikan pelayanan profesional, terjangkau, dan paripurna bagi masyarakat.",
+    misi: [
+      "Memberikan pelayanan medis dasar dan lanjutan yang berkualitas.",
+      "Mengutamakan keselamatan dan kepuasan pasien.",
+      "Menyediakan fasilitas kesehatan yang memadai dan buka 24 jam.",
+      "Mendukung program pemerintah melalui pelayanan BPJS Kesehatan."
+    ]
   },
-  alurPelayanan: [
-    { id: 1, langkah: "Ambil Antrean", detail: "Pasien datang mengambil nomor antrean di mesin otomatis" },
-    { id: 2, langkah: "Pendaftaran", detail: "Melakukan pendaftaran dan verifikasi berkas di loket pendaftaran" },
-    { id: 3, langkah: "Pemeriksaan Awal", detail: "Pemeriksaan tensi, berat badan, dan suhu oleh perawat" },
-    { id: 4, langkah: "Konsultasi Dokter", detail: "Pemeriksaan dan konsultasi dengan dokter di ruang poli" },
+  dokter: [
+    { id: 1, nama: "dr. Andi Wijaya", spesialisasi: "Dokter Umum", jadwal: "Senin - Rabu (08.00 - 14.00)", foto: "https://ui-avatars.com/api/?name=Andi+Wijaya&background=0D8ABC&color=fff&size=150" },
+    { id: 2, nama: "drg. Budi Santoso", spesialisasi: "Dokter Gigi", jadwal: "Kamis - Sabtu (16.00 - 20.00)", foto: "https://ui-avatars.com/api/?name=Budi+Santoso&background=10b981&color=fff&size=150" },
+    { id: 3, nama: "Bd. Siti Aminah, S.Tr.Keb", spesialisasi: "Bidan (KIA)", jadwal: "Setiap Hari (Sesuai Jadwal Jaga)", foto: "https://ui-avatars.com/api/?name=Siti+Aminah&background=f43f5e&color=fff&size=150" },
+  ],
+  layanan: [
+    { id: 1, nama: "Poli Umum", deskripsi: "Pemeriksaan dan pengobatan penyakit umum", icon: "Stethoscope" },
+    { id: 2, nama: "Poli Gigi", deskripsi: "Perawatan kesehatan gigi dan mulut", icon: "Smile" },
+    { id: 3, nama: "KIA & KB", deskripsi: "Kesehatan ibu, anak, dan keluarga berencana", icon: "Baby" },
+    { id: 4, nama: "UGD 24 Jam", deskripsi: "Penanganan kasus gawat darurat ringan-sedang", icon: "Activity" },
+    { id: 5, nama: "Farmasi 24 Jam", deskripsi: "Penyediaan obat-obatan sesuai resep", icon: "Pill" },
+    { id: 6, nama: "Laboratorium", deskripsi: "Pemeriksaan darah, urine, dll", icon: "TestTube" },
   ],
   alurPendaftaran: [
     { id: 1, langkah: "Pilih Jalur", detail: "Pilih antara Mobile JKN atau Datang Langsung" },
-    { id: 2, langkah: "Pendaftaran", detail: "Registrasi di loket pendaftaran / validasi online" },
-    { id: 3, langkah: "Pemeriksaan Awal", detail: "Pemeriksaan tensi, suhu, dan berat badan" },
-    { id: 4, langkah: "Tindakan / Resep", detail: "Konsultasi dokter, tindakan medis, dan pengambilan obat" },
-  ],
-  layanan: [
-    { id: 1, judul: "Poli Umum", icon: "Stethoscope", deskripsi: "Pemeriksaan dan pengobatan penyakit umum oleh dokter berpengalaman." },
-    { id: 2, judul: "Poli Gigi", icon: "Smile", deskripsi: "Perawatan kesehatan gigi dan mulut yang lengkap dan nyaman." },
-    { id: 3, judul: "KIA & KB", icon: "Baby", deskripsi: "Pelayanan kesehatan ibu, anak, dan konsultasi keluarga berencana." },
-    { id: 4, judul: "UGD 24 Jam", icon: "Activity", deskripsi: "Penanganan kasus gawat darurat ringan hingga sedang." },
-    { id: 5, judul: "Apotek", icon: "Pill", deskripsi: "Penyediaan obat-obatan lengkap sesuai resep dokter." },
-    { id: 6, judul: "Laboratorium", icon: "TestTube", deskripsi: "Pemeriksaan darah, urine, dan tes kesehatan dasar lainnya." }
+    { id: 2, langkah: "Siapkan Berkas", detail: "Bawa KTP asli dan Kartu BPJS (bagi pasien BPJS)" },
+    { id: 3, langkah: "Registrasi", detail: "Daftar di meja pendaftaran / lewat aplikasi" },
+    { id: 4, langkah: "Pemeriksaan", detail: "Diperiksa oleh dokter/tenaga kesehatan" },
+    { id: 5, langkah: "Farmasi", detail: "Ambil obat di bagian farmasi" }
   ],
   galeri: [
-    { id: 1, kategori: "Fasilitas", src: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", judul: "Gedung Klinik", deskripsi: "Tampak depan gedung klinik yang nyaman" },
-    { id: 2, kategori: "Ruangan", src: "https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", judul: "Ruang Periksa Umum", deskripsi: "Ruang pemeriksaan yang bersih dan higienis" },
-    { id: 3, kategori: "Ruangan", src: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", judul: "Ruang Poli Gigi", deskripsi: "Peralatan poli gigi modern" },
-    { id: 4, kategori: "Fasilitas", src: "https://images.unsplash.com/photo-1587370560942-ad2a04eabb6d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", judul: "Apotek", deskripsi: "Pelayanan obat yang cepat dan lengkap" },
-    { id: 5, kategori: "Kegiatan", src: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", judul: "Penyuluhan Kesehatan", deskripsi: "Kegiatan penyuluhan rutin warga" },
-    { id: 6, kategori: "Kegiatan", src: "https://images.unsplash.com/photo-1527613426441-4da17471b66d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", judul: "Kegiatan Posyandu", deskripsi: "Pendampingan kesehatan ibu dan balita" }
+    { id: 1, url: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80", caption: "Gedung Klinik", kategori: "Halaman Depan" },
+    { id: 2, url: "https://images.unsplash.com/photo-1538108149393-fbbd81895907?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80", caption: "Ruang Periksa Umum", kategori: "Ruang Tindakan" },
+    { id: 3, url: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80", caption: "Ruang Tunggu Nyaman", kategori: "Fasilitas Umum" },
+    { id: 4, url: "https://images.unsplash.com/photo-1551076805-e18690c5e53b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80", caption: "Kegiatan Senam Minggu", kategori: "Kegiatan" },
+    { id: 5, url: "https://images.unsplash.com/photo-1631549916768-4119b2e5f926?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80", caption: "Ruang Periksa Gigi", kategori: "Ruang Tindakan" },
+    { id: 6, url: "https://images.unsplash.com/photo-1587854692152-cbe660dbde88?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80", caption: "Instalasi Farmasi", kategori: "Farmasi" },
   ]
 };
