@@ -1,6 +1,7 @@
 export const klinikData = {
   nama: "Klinik Satria Gadingan",
   slogan: "Melayani Pasien Umum & BPJS Kesehatan dengan Sepenuh Hati",
+  tagline: "Klinik Satria Gadingan hadir memberikan pelayanan kesehatan paripurna untuk Anda dan keluarga. Kami berkomitmen untuk selalu memberikan pelayanan yang cepat, tepat, dan ramah.",
   deskripsi: "Klinik Pratama Satria Gadingan hadir memberikan pelayanan kesehatan terpadu, profesional, dan terjangkau bagi masyarakat sekitar. Kami berkomitmen untuk menjadi mitra kesehatan terbaik keluarga Anda.",
   kontak: {
     telepon: "(0274) 123456",
@@ -22,6 +23,12 @@ export const klinikData = {
     { id: 2, langkah: "Pendaftaran", detail: "Melakukan pendaftaran dan verifikasi berkas di loket pendaftaran" },
     { id: 3, langkah: "Pemeriksaan Awal", detail: "Pemeriksaan tensi, berat badan, dan suhu oleh perawat" },
     { id: 4, langkah: "Konsultasi Dokter", detail: "Pemeriksaan dan konsultasi dengan dokter di ruang poli" },
+  ],
+  alurPendaftaran: [
+    { id: 1, langkah: "Pilih Jalur", detail: "Pilih antara Mobile JKN atau Datang Langsung" },
+    { id: 2, langkah: "Pendaftaran", detail: "Registrasi di loket pendaftaran / validasi online" },
+    { id: 3, langkah: "Pemeriksaan Awal", detail: "Pemeriksaan tensi, suhu, dan berat badan" },
+    { id: 4, langkah: "Tindakan / Resep", detail: "Konsultasi dokter, tindakan medis, dan pengambilan obat" },
   ],
   layanan: [
     { id: 1, judul: "Poli Umum", icon: "Stethoscope", deskripsi: "Pemeriksaan dan pengobatan penyakit umum oleh dokter berpengalaman." },
