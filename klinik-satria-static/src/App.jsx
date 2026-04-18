@@ -96,9 +96,9 @@ function App() {
           </p>
           
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-16">
-            <a href={`https://wa.me/${klinikData.kontak.whatsapp}`} target="_blank" rel="noreferrer" className="flex items-center justify-center w-full sm:w-auto px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-sky-600 hover:bg-sky-700 md:py-4 md:text-lg transition-all shadow-lg hover:shadow-sky-500/30">
-              <Phone className="w-5 h-5 mr-2" /> Daftar via WhatsApp
-            </a>
+            <Link to="layanan" smooth={true} duration={500} offset={-80} className="flex items-center justify-center w-full sm:w-auto px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-sky-600 hover:bg-sky-700 md:py-4 md:text-lg transition-all shadow-lg hover:shadow-sky-500/30 cursor-pointer">
+              Lihat Layanan Kami
+            </Link>
             <a href="#kontak" className="flex items-center justify-center w-full sm:w-auto px-8 py-3 border border-sky-200 text-base font-medium rounded-md text-sky-700 bg-sky-50 hover:bg-sky-100 md:py-4 md:text-lg transition-all">
               <Info className="w-5 h-5 mr-2" /> Info Mobile JKN
             </a>
@@ -257,8 +257,8 @@ function App() {
                   <Phone className="w-6 h-6 text-sky-400 mr-4 flex-shrink-0 mt-1" />
                   <div>
                     <h4 className="font-bold text-lg">Kontak</h4>
-                    <p className="text-sky-100">WhatsApp: {klinikData.kontak.whatsapp}</p>
                     <p className="text-sky-100">Telepon: {klinikData.kontak.telepon}</p>
+                    <p className="text-sky-100">Email: {klinikData.kontak.email || "info@klinik-satria.com"}</p>
                   </div>
                 </div>
 
@@ -266,14 +266,17 @@ function App() {
                   <Clock className="w-6 h-6 text-sky-400 mr-4 flex-shrink-0 mt-1" />
                   <div>
                     <h4 className="font-bold text-lg">Jam Operasional</h4>
-                    <p className="text-sky-100">{klinikData.buka}</p>
+                    <p className="text-sky-100">{klinikData.buka || "08.00 - 20.00 WIB"}</p>
                   </div>
                 </div>
               </div>
 
-              <div className="mt-10">
-                <a href={`https://wa.me/${klinikData.kontak.whatsapp}`} target="_blank" rel="noreferrer" className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-sky-900 bg-white hover:bg-sky-50 transition-colors">
-                  <Phone className="w-5 h-5 mr-2" /> Hubungi WhatsApp Sekarang
+              <div className="mt-10 flex gap-4">
+                <a href={klinikData.kontak.socialMedia?.instagram || "https://instagram.com/kliniksatriagadingan"} target="_blank" rel="noreferrer" className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-sky-900 bg-white hover:bg-sky-50 transition-colors shadow-sm">
+                  Instagram
+                </a>
+                <a href={klinikData.kontak.socialMedia?.facebook || "https://facebook.com/kliniksatriagadingan"} target="_blank" rel="noreferrer" className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-sky-900 bg-white hover:bg-sky-50 transition-colors shadow-sm">
+                  Facebook
                 </a>
               </div>
             </div>
