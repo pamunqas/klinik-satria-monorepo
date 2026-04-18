@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Activity, Users, Image as ImageIcon, Settings, LogOut, FileText, User } from 'lucide-react';
+import { Activity, Users, Image as ImageIcon, Settings, LogOut, FileText, User, Target, Home } from 'lucide-react';
 import { signOut, useSession } from 'next-auth/react';
 
 export default function AdminLayout({ children }) {
@@ -26,7 +26,13 @@ export default function AdminLayout({ children }) {
             href="/admin" 
             className={`flex items-center px-4 py-3 rounded-lg ${pathname === '/admin' ? 'bg-sky-600 text-white' : 'hover:bg-slate-800 text-slate-300'}`}
           >
-            <FileText className="w-5 h-5 mr-3" /> Beranda & Visi
+            <Home className="w-5 h-5 mr-3" /> Beranda
+          </Link>
+          <Link 
+            href="/admin/visi-misi" 
+            className={`flex items-center px-4 py-3 rounded-lg ${pathname === '/admin/visi-misi' ? 'bg-sky-600 text-white' : 'hover:bg-slate-800 text-slate-300'}`}
+          >
+            <Target className="w-5 h-5 mr-3" /> Visi & Misi
           </Link>
           <Link 
             href="/admin/doctors" 
