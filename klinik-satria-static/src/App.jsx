@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-scroll';
-import { Stethoscope, Smile, Baby, Activity, Pill, TestTube, MapPin, Phone, Clock, Info, ArrowRight, Menu, X, Users, UserCheck, ShieldCheck, FileDigit, Smartphone, Download, CheckCircle2 } from 'lucide-react';
-import { klinikData } from './data-klinik';
+import { Stethoscope, Smile, Baby, Activity, Pill, TestTube, MapPin, Phone, Clock, Info, ArrowRight, Menu, X, Users, UserCheck, ShieldCheck, FileDigit, Smartphone, Download, CheckCircle2, Loader2 } from 'lucide-react';
+import { klinikData as staticFallbackData } from './data-klinik';
+
+const API_URL = import.meta.env.VITE_CMS_URL || "https://klinik-satria-cms.vercel.app";
 
 const iconMap = {
   Stethoscope: <Stethoscope className="w-8 h-8 text-sky-500" />,
@@ -15,8 +17,84 @@ const iconMap = {
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [filterGaleri, setFilterGaleri] = useState('Semua');
+  
+  // Data state
+  const [klinikData, setKlinikData] = useState(staticFallbackData);
+  const [isLoading, setIsLoading] = useState(true);
+
+  // Fetch dynamic data from CMS
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const [profileRes, doctorsRes, servicesRes, galleryRes] = await Promise.all([
+          fetch(`${API_URL}/api/profile`),
+          fetch(`${API_URL}/api/doctors`),
+          fetch(`${API_URL}/api/services`),
+          fetch(`${API_URL}/api/gallery`)
+        ]);
+
+        if (profileRes.ok) {
+          const profile = await profileRes.json();
+          const doctors = await doctorsRes.json();
+          const services = await servicesRes.json();
+          const gallery = await galleryRes.json();
+
+          // Merge DB profile with static arrays if DB arrays are empty (for transition)
+          setKlinikData(prev => ({
+            ...prev,
+            nama: profile.nama || prev.nama,
+            tagline: profile.tagline || prev.tagline,
+            alamat: profile.alamat || prev.alamat,
+            buka: profile.buka || prev.buka,
+            kontak: {
+              telepon: profile.telepon || prev.kontak.telepon,
+              email: profile.email || prev.kontak.email,
+              socialMedia: {
+                instagram: profile.instagram || prev.kontak.socialMedia.instagram,
+                facebook: profile.facebook || prev.kontak.socialMedia.facebook
+              }
+            },
+            visimisi: {
+              visi: profile.visi || prev.visimisi.visi,
+              misi: profile.misi?.length > 0 ? profile.misi : prev.visimisi.misi,
+            },
+            jamOperasional: {
+              seninJumat: profile.jamSeninJumat || prev.jamOperasional.seninJumat,
+              sabtu: profile.jamSabtu || prev.jamOperasional.sabtu,
+              minggu: profile.jamMinggu || prev.jamOperasional.minggu
+            },
+            mobileJKN: {
+              judul: profile.jknJudul || prev.mobileJKN.judul,
+              deskripsi: profile.jknDeskripsi || prev.mobileJKN.deskripsi,
+              catatan: profile.jknCatatan || prev.mobileJKN.catatan,
+              langkah: prev.mobileJKN.langkah // Keep static for now unless we add DB table for it
+            },
+            // Replace with DB data if exists, otherwise fallback
+            dokter: doctors.length > 0 ? doctors : prev.dokter,
+            layanan: services.length > 0 ? services : prev.layanan,
+            galeri: gallery.length > 0 ? gallery : prev.galeri,
+          }));
+        }
+      } catch (error) {
+        console.error("Gagal memuat data dari CMS, menggunakan data fallback lokal.", error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gray-50 flex-col">
+        <Loader2 className="w-12 h-12 text-sky-500 animate-spin mb-4" />
+        <p className="text-gray-500 font-medium animate-pulse">Menyiapkan Klinik Satria...</p>
+      </div>
+    );
+  }
 
   const kategoriGaleri = ['Semua', ...new Set(klinikData.galeri.map(item => item.kategori))];
   
@@ -32,7 +110,7 @@ function App() {
           <div className="flex justify-between h-16 items-center">
             <div className="flex-shrink-0 flex items-center">
               <Activity className="h-8 w-8 text-emerald-500 mr-2" />
-              <span className="font-bold text-xl text-sky-600">Klinik Satria</span>
+              <span className="font-bold text-xl text-sky-600">{klinikData.nama.split(" ")[0]} {klinikData.nama.split(" ")[1]}</span>
             </div>
             
             {/* Desktop Menu */}
