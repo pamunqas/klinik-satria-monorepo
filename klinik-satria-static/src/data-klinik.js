@@ -40,6 +40,16 @@ export const klinikData = {
     { id: 4, langkah: "Pemeriksaan", detail: "Diperiksa oleh tim dokter/tenaga kesehatan" },
     { id: 5, langkah: "Farmasi", detail: "Pengambilan obat dengan resep dokter" }
   ],
+  mobileJKN: {
+    judul: "Mudahnya Daftar via Aplikasi Mobile JKN",
+    deskripsi: "Sebagai mitra resmi BPJS Kesehatan, Anda dapat mengambil nomor antrean dari rumah tanpa perlu menunggu lama di klinik. Cukup gunakan aplikasi Mobile JKN di smartphone Anda.",
+    langkah: [
+      { id: 1, title: "Buka Aplikasi", desc: "Buka aplikasi Mobile JKN dan pastikan Anda sudah login menggunakan NIK atau nomor kartu BPJS." },
+      { id: 2, title: "Pilih Pendaftaran", desc: "Ketuk menu 'Pendaftaran Pelayanan' (Antrean) di layar utama aplikasi." },
+      { id: 3, title: "Pilih Faskes & Poli", desc: "Pilih Klinik Satria Gadingan, lalu tentukan Poli (Umum/Gigi/KIA) dan tanggal/jam kunjungan." },
+      { id: 4, title: "Dapatkan Antrean", desc: "Selesai! Anda akan mendapat nomor antrean digital beserta estimasi waktu pelayanan." }
+    ]
+  },
   galeri: [
     { id: 1, url: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80", caption: "Gedung Klinik", kategori: "Halaman Depan" },
     { id: 2, url: "https://images.unsplash.com/photo-1538108149393-fbbd81895907?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80", caption: "Ruang Periksa Umum", kategori: "Ruang Tindakan" },

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-scroll';
-import { Stethoscope, Smile, Baby, Activity, Pill, TestTube, MapPin, Phone, Clock, Info, ArrowRight, Menu, X, Users, UserCheck, ShieldCheck, FileDigit } from 'lucide-react';
+import { Stethoscope, Smile, Baby, Activity, Pill, TestTube, MapPin, Phone, Clock, Info, ArrowRight, Menu, X, Users, UserCheck, ShieldCheck, FileDigit, Smartphone, Download, CheckCircle2 } from 'lucide-react';
 import { klinikData } from './data-klinik';
 
 const iconMap = {
@@ -261,6 +261,59 @@ function App() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* MOBILE JKN SECTION */}
+      <section className="py-16 bg-gradient-to-br from-emerald-50 to-sky-50 border-t border-sky-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-white rounded-3xl shadow-xl overflow-hidden border border-emerald-100">
+            <div className="grid md:grid-cols-2">
+              <div className="p-8 md:p-12 lg:p-16 flex flex-col justify-center">
+                <div className="inline-flex items-center px-3 py-1.5 rounded-full bg-emerald-100 text-emerald-700 font-semibold text-sm mb-6 border border-emerald-200">
+                  <ShieldCheck className="w-4 h-4 mr-2" /> Bebas Antre Fisik
+                </div>
+                <h2 className="text-3xl font-extrabold text-gray-900 mb-4">{klinikData.mobileJKN.judul}</h2>
+                <p className="text-gray-600 text-lg mb-8 leading-relaxed">
+                  {klinikData.mobileJKN.deskripsi}
+                </p>
+                
+                <div className="space-y-4 mb-8">
+                  {klinikData.mobileJKN.langkah.map((item) => (
+                    <div key={item.id} className="flex items-start">
+                      <div className="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center font-bold text-sm border border-emerald-200 mt-1">
+                        {item.id}
+                      </div>
+                      <div className="ml-4">
+                        <h4 className="text-gray-900 font-bold">{item.title}</h4>
+                        <p className="text-gray-500 text-sm">{item.desc}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <a href="https://play.google.com/store/apps/details?id=app.bpjs.mobile" target="_blank" rel="noreferrer" className="flex items-center justify-center px-6 py-3 bg-gray-900 text-white rounded-xl hover:bg-gray-800 transition-colors">
+                    <Download className="w-5 h-5 mr-2" /> Google Play
+                  </a>
+                  <a href="https://apps.apple.com/id/app/mobile-jkn/id1375459282" target="_blank" rel="noreferrer" className="flex items-center justify-center px-6 py-3 bg-gray-900 text-white rounded-xl hover:bg-gray-800 transition-colors">
+                    <Download className="w-5 h-5 mr-2" /> App Store
+                  </a>
+                </div>
+              </div>
+              
+              <div className="bg-emerald-600 relative overflow-hidden flex items-center justify-center p-12 min-h-[400px]">
+                <div className="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 rounded-full bg-emerald-500/50 blur-3xl"></div>
+                <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-64 h-64 rounded-full bg-sky-500/50 blur-3xl"></div>
+                
+                <div className="relative z-10 text-center">
+                  <Smartphone className="w-32 h-32 text-white mx-auto mb-6 drop-shadow-lg" strokeWidth={1} />
+                  <h3 className="text-2xl font-bold text-white mb-2">Aplikasi Mobile JKN</h3>
+                  <p className="text-emerald-100">Solusi antrean faskes masa kini.</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
