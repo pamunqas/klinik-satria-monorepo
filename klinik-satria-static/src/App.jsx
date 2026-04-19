@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-scroll';
-import { Stethoscope, Smile, Baby, Activity, Pill, TestTube, MapPin, Phone, Clock, Info, ArrowRight, Menu, X } from 'lucide-react';
+import { Stethoscope, Smile, Baby, Activity, Pill, TestTube, MapPin, Phone, Clock, Info, ArrowRight, Menu, X, Users, UserCheck, ShieldCheck, FileDigit } from 'lucide-react';
 import { klinikData } from './data-klinik';
 
 const iconMap = {
@@ -105,7 +105,7 @@ function App() {
           </div>
 
           {/* Alur Pendaftaran */}
-          <div className="max-w-5xl mx-auto bg-white rounded-2xl shadow-xl p-6 md:p-10 border border-gray-100">
+          <div className="max-w-5xl mx-auto bg-white rounded-2xl shadow-xl p-6 md:p-10 border border-gray-100 mb-16">
             <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">Alur Pendaftaran Pasien</h3>
             <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
               {klinikData.alurPendaftaran.map((alur, index) => (
@@ -122,6 +122,34 @@ function App() {
               ))}
             </div>
           </div>
+
+          {/* Trust Badges / Pencapaian */}
+          <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
+            <div className="bg-white/50 backdrop-blur-sm rounded-2xl p-6 text-center border border-sky-100 shadow-sm hover:shadow-md transition-all">
+              <Users className="w-10 h-10 text-sky-500 mx-auto mb-3" />
+              <h3 className="text-3xl md:text-4xl font-black text-slate-800 mb-1">14.800+</h3>
+              <p className="text-sm md:text-base text-gray-600 font-medium">Pasien Terlayani / Tahun</p>
+            </div>
+            
+            <div className="bg-white/50 backdrop-blur-sm rounded-2xl p-6 text-center border border-emerald-100 shadow-sm hover:shadow-md transition-all">
+              <UserCheck className="w-10 h-10 text-emerald-500 mx-auto mb-3" />
+              <h3 className="text-3xl md:text-4xl font-black text-slate-800 mb-1">12+</h3>
+              <p className="text-sm md:text-base text-gray-600 font-medium">Tenaga Medis Profesional</p>
+            </div>
+
+            <div className="bg-white/50 backdrop-blur-sm rounded-2xl p-6 text-center border border-sky-100 shadow-sm hover:shadow-md transition-all">
+              <ShieldCheck className="w-10 h-10 text-sky-500 mx-auto mb-3" />
+              <h3 className="text-3xl md:text-4xl font-black text-slate-800 mb-1">Faskes 1</h3>
+              <p className="text-sm md:text-base text-gray-600 font-medium">Mitra Resmi BPJS Kesehatan</p>
+            </div>
+
+            <div className="bg-white/50 backdrop-blur-sm rounded-2xl p-6 text-center border border-emerald-100 shadow-sm hover:shadow-md transition-all">
+              <FileDigit className="w-10 h-10 text-emerald-500 mx-auto mb-3" />
+              <h3 className="text-3xl md:text-4xl font-black text-slate-800 mb-1">100%</h3>
+              <p className="text-sm md:text-base text-gray-600 font-medium">Terintegrasi RME Digital</p>
+            </div>
+          </div>
+
         </div>
       </section>
 
