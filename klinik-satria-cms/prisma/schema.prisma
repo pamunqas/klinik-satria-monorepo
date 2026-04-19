@@ -17,3 +17,65 @@ model User {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
+
+model ClinicProfile {
+  id           String   @id @default("default") // Hanya ada 1 baris
+  nama         String   @default("Klinik Pratama Satria Gadingan")
+  buka         String   @default("Buka 24 Jam")
+  tagline      String   @default("Ekosistem Layanan Kesehatan Primer Terpadu & Faskes BPJS")
+  alamat       String   @default("Jl. Kaliurang KM 10,9, Desa Gadingan RT 1 RW 7, Kel. Sinduharjo, Kec. Ngaglik, Kab. Sleman, DIY")
+  telepon      String   @default("0274-123456")
+  email        String   @default("info@klinik-satria.com")
+  instagram    String   @default("https://instagram.com/kliniksatriagadingan")
+  facebook     String   @default("https://facebook.com/kliniksatriagadingan")
+  visi         String   @db.Text @default("Menjadi pusat pelayanan fasilitas kesehatan primer pilihan utama yang memberikan pelayanan berkualitas dan secara menyeluruh.")
+  misi         String[] // Array of strings
+  
+  // Jam Operasional Detail
+  jamSeninJumat String  @default("08.00 - 20.00 WIB")
+  jamSabtu      String  @default("08.00 - 15.00 WIB")
+  jamMinggu     String  @default("Tutup (Kecuali UGD 24 Jam)")
+
+  // Mobile JKN Settings
+  jknJudul     String   @default("Mudahnya Daftar via Aplikasi Mobile JKN")
+  jknDeskripsi String   @db.Text @default("Sebagai mitra resmi BPJS Kesehatan, Anda dapat mengambil nomor antrean dari rumah tanpa perlu menunggu lama di klinik.")
+  jknCatatan   String   @db.Text @default("*Perhatian: Pendaftaran via Mobile JKN ini KHUSUS untuk pasien BPJS Kesehatan yang faskes pertamanya terdaftar di Klinik Satria Gadingan.")
+
+  updatedAt    DateTime @updatedAt
+}
+
+model Doctor {
+  id           String   @id @default(cuid())
+  nama         String
+  spesialisasi String
+  jadwal       String
+  foto         String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model Service {
+  id           String   @id @default(cuid())
+  nama         String
+  deskripsi    String   @db.Text
+  icon         String   @default("Activity") // Lucide icon name
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model Gallery {
+  id           String   @id @default(cuid())
+  url          String
+  caption      String
+  kategori     String
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model AlurLayanan {
+  id           String   @id @default(cuid())
+  urutan       Int      // Untuk sorting (1, 2, 3...)
+  langkah      String
+  detail       String   @db.Text
+  tipe         String   @default("UMUM") // "UMUM" atau "JKN"
+}
