@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Activity, Users, Image as ImageIcon, Settings, LogOut, FileText, User, Target, Home } from 'lucide-react';
 import { signOut, useSession } from 'next-auth/react';
+import { Toaster } from 'react-hot-toast';
 
 export default function AdminLayout({ children }) {
   const pathname = usePathname();
@@ -15,6 +16,7 @@ export default function AdminLayout({ children }) {
 
   return (
     <div className="min-h-screen bg-gray-100 flex">
+      <Toaster position="top-right" />
       {/* Sidebar */}
       <aside className="w-64 bg-slate-900 text-white flex flex-col fixed h-full z-10">
         <div className="h-16 flex items-center px-6 border-b border-slate-800">
