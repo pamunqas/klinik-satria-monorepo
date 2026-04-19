@@ -99,9 +99,9 @@ function App() {
             <Link to="layanan" smooth={true} duration={500} offset={-80} className="flex items-center justify-center w-full sm:w-auto px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-sky-600 hover:bg-sky-700 md:py-4 md:text-lg transition-all shadow-lg hover:shadow-sky-500/30 cursor-pointer">
               Lihat Layanan Kami
             </Link>
-            <a href="#kontak" className="flex items-center justify-center w-full sm:w-auto px-8 py-3 border border-sky-200 text-base font-medium rounded-md text-sky-700 bg-sky-50 hover:bg-sky-100 md:py-4 md:text-lg transition-all">
+            <Link to="mobile-jkn" smooth={true} duration={500} offset={-80} className="flex items-center justify-center w-full sm:w-auto px-8 py-3 border border-sky-200 text-base font-medium rounded-md text-sky-700 bg-sky-50 hover:bg-sky-100 md:py-4 md:text-lg transition-all cursor-pointer">
               <Info className="w-5 h-5 mr-2" /> Info Mobile JKN
-            </a>
+            </Link>
           </div>
 
           {/* Alur Pendaftaran */}
@@ -266,7 +266,7 @@ function App() {
       </section>
 
       {/* MOBILE JKN SECTION */}
-      <section className="py-16 bg-gradient-to-br from-emerald-50 to-sky-50 border-t border-sky-100">
+      <section id="mobile-jkn" className="py-16 bg-gradient-to-br from-emerald-50 to-sky-50 border-t border-sky-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-white rounded-3xl shadow-xl overflow-hidden border border-emerald-100">
             <div className="grid md:grid-cols-2">
@@ -275,9 +275,13 @@ function App() {
                   <ShieldCheck className="w-4 h-4 mr-2" /> Bebas Antre Fisik
                 </div>
                 <h2 className="text-3xl font-extrabold text-gray-900 mb-4">{klinikData.mobileJKN.judul}</h2>
-                <p className="text-gray-600 text-lg mb-8 leading-relaxed">
+                <p className="text-gray-600 text-lg mb-4 leading-relaxed">
                   {klinikData.mobileJKN.deskripsi}
                 </p>
+                <div className="bg-red-50 text-red-700 p-4 rounded-xl text-sm font-medium border border-red-100 mb-8 flex items-start">
+                  <Info className="w-5 h-5 mr-3 flex-shrink-0 mt-0.5" />
+                  <p>{klinikData.mobileJKN.catatan}</p>
+                </div>
                 
                 <div className="space-y-4 mb-8">
                   {klinikData.mobileJKN.langkah.map((item) => (

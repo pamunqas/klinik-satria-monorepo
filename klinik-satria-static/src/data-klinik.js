@@ -43,6 +43,7 @@ export const klinikData = {
   mobileJKN: {
     judul: "Mudahnya Daftar via Aplikasi Mobile JKN",
     deskripsi: "Sebagai mitra resmi BPJS Kesehatan, Anda dapat mengambil nomor antrean dari rumah tanpa perlu menunggu lama di klinik. Cukup gunakan aplikasi Mobile JKN di smartphone Anda.",
+    catatan: "*Perhatian: Pendaftaran via Mobile JKN ini KHUSUS untuk pasien BPJS Kesehatan yang faskes pertamanya terdaftar di Klinik Satria Gadingan.",
     langkah: [
       { id: 1, title: "Buka Aplikasi", desc: "Buka aplikasi Mobile JKN dan pastikan Anda sudah login menggunakan NIK atau nomor kartu BPJS." },
       { id: 2, title: "Pilih Pendaftaran", desc: "Ketuk menu 'Pendaftaran Pelayanan' (Antrean) di layar utama aplikasi." },
